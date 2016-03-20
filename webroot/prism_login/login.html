@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>PRISM login</title>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <!--
+        DO FAVICON LATER!  16X16PX ECPECTED
+        <link href="prismfavicon.png" type="image/ico" rel="shortcut icon" />
+        -->
+    </head>
+
+    <body>
+        <h1> P R I S M </h1>
+        <div id="box">
+            <p id="logintext">
+                The best way to find internships at NSC.
+                <br />
+                You cannot create an account.
+            </p>
+
+            <!--
+            STUDENTS:     
+                username: Shade777
+                pass: TGW1VU2E8R2BK26G5VAQG90392362K5F56L0MAZ9U9AF0X3AOU4Z03FEIJJH49XEM662K4K2
+                
+                username: Christoper48
+                pass: HI0O29B9S44PZ219W35T16IIGN
+                
+                username: Rickey2016
+                pass: 01895YKE4MCR
+            
+            FACULTY:
+                username: Ethyl1974
+                pass: GZ6A6F6U8FJ677UY4
+            
+            ADMIN:
+                username: Eufemia2014
+                pass: 23Y090M059B7593B9K3IF
+            -->
+            <form id="loginform" action="login_system.php" method="post">
+                <table>
+                    <tr>
+                        <td align="right"><p id="text">Username:</p></td>
+                        <td align="left">
+                            <input name="username" type="text" size="15" autofocus="autofocus" placeholder="username"/>
+                	    </td>
+                    </tr>
+                    <tr>
+                         <td align="right"><p id="text">Password:</p></td>
+                         <td align="left"><input name="password" type="password" size="15" placeholder="password"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><input type="submit" value="L O G I N" /></td>
+                        <td align="left"><input type="reset" value="Reset"></></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </body>
+</html>
