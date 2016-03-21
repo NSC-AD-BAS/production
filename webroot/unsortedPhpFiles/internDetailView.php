@@ -20,7 +20,7 @@
     $ID = $_GET["id"];
     $ORGN = $_GET["orgName"];
     if ($ID < 1 || $ID == NULL) {
-        header("Location: Internship_List.php");
+        header("Location: internListView.php");
     }
 
     $conn = db_connect();
@@ -62,8 +62,8 @@
 
     $pid = $ID - 1;
     $nid = $ID + 1;
-    $prev = "Internship_Detail.php?id=$pid";
-    $next = "Internship_Detail.php?id=$nid";
+    $prev = "internDetailView.php?id=$pid";
+    $next = "internDetailView.php?id=$nid";
     $orgPage = "Organization_detail.php?id=$orgid";
 
     function db_connect() {
@@ -133,7 +133,7 @@
     <input name="prev_button" type="button" value="prev" onClick="location.href='<?php echo $prev ?>'"/>
     <input name="next_button" type="button" value="next" onClick="location.href=' <?php echo $next ?> '"/>&nbsp;&nbsp;&nbsp;
     <input name="list_view" style="width: 96px" type="button" value="list view"
-           onClick="location.href=' Internship_List.php '"/></form>
+           onClick="location.href='internListView.php '"/></form>
 </p>
 </body>
 </html>

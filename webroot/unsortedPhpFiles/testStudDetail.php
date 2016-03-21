@@ -3,7 +3,7 @@ session_start();
 //need to check if there's a search given in the first place
 if(isset($_POST['student_id'])){
   // Include the search class
-  require_once( dirname( __FILE__ ) . '/student_detailed.php' );
+  require_once(dirname(__FILE__) . '/studentDetailView.php');
   
   //quick search to initialize the class
   include 'db_connect.php';

@@ -1,7 +1,7 @@
 <?php
 
-//TODO: 
-// -Pagination: 
+//TODO:
+// -Pagination:
 //  Counter global, results per page link, dynamic LIMIT in main query
 //  NEXT and PREVIOUS links
 // -Sorting:
@@ -12,7 +12,7 @@ function get_all_internships_detail($start, $end) {
 
     $sql = "SELECT * FROM internship_detail where InternshipId between $start and $end";
     $result = mysqli_query($conn, $sql);
-    while ($row = $result->fetch_assoc()) { 
+    while ($row = $result->fetch_assoc()) {
         $output[] = $row;
     }
 
@@ -27,7 +27,7 @@ function get_job_description($id) {
 
     $sql = "SELECT Description FROM internships WHERE InternshipId = $id";
     $result = mysqli_query($conn, $sql);
-    while ($row = $result->fetch_array()) { 
+    while ($row = $result->fetch_array()) {
         $output[0] = $row;
     }
 
@@ -40,7 +40,7 @@ function get_job_description($id) {
 
 //Handy Helper Functions
 function db_connect() {
-    include '../include/db_connect.php';
+    include 'db_connect.php';
     //create and verify connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     if (!$conn) {
@@ -50,7 +50,7 @@ function db_connect() {
 }
 
 function create_internship_detail_link($internshipId, $linkTitle) {
-    return "<a href=Internship_Detail.php?id=" . $internshipId. ">" . $linkTitle . "</a>";
+    return "<a href=internDetailView.php?id=" . $internshipId. ">" . $linkTitle . "</a>";
 }
 
 function create_internship_desc_link($internshipId, $linkTitle) {
@@ -58,13 +58,13 @@ function create_internship_desc_link($internshipId, $linkTitle) {
 }
 
 function create_intership_row_html($row) {
-    return "<tr><td>" 
-    . create_internship_detail_link($row['InternshipId'], $row['Position Title']). "</td><td>"  
-    . $row['Organization'] . "</td><td>" 
-    . $row['Address 1'] . "</td><td>" 
-    . $row['Address 2'] . "</td><td>" 
-    . $row['City'] . "</td><td>" 
-    . $row['State'] . "</td><td>" 
+    return "<tr><td>"
+    . create_internship_detail_link($row['InternshipId'], $row['Position Title']). "</td><td>"
+    . $row['Organization'] . "</td><td>"
+    . $row['Address 1'] . "</td><td>"
+    . $row['Address 2'] . "</td><td>"
+    . $row['City'] . "</td><td>"
+    . $row['State'] . "</td><td>"
     . create_internship_desc_link($row['InternshipId'], "More Info"). "</td></tr>";
 }
 
@@ -80,34 +80,3 @@ $desc = get_job_description($rows[$id]['InternshipId']);
 
 ?>
 
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-<body>
-    <table>
-        <tr>
-            <td>Title</td>
-            <td>Organization</td>
-            <td>Address 1</td>
-            <td>Address 2</td>
-            <td>City</td>
-            <td>State</td>
-            <td>Description</td>
-        </tr>
-        <?php foreach ($rows as $row) {
-            echo create_intership_row_html($row);
-        }
-        ?>
-    </table>
-    <br>
-    <br>
-    <table>
-    <tr>Internship Description</tr>
-        <tr><td> 
-            <?php
-            echo $desc;
-            ?>
-        </td></tr>
-    </table>
-</body>

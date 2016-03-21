@@ -10,7 +10,6 @@
 
 session_start();
 if (!is_logged_in()) {
-
     $username = $_POST["username"];
     $password = $_POST["password"];
     # initial validation of login information using regex
@@ -45,7 +44,7 @@ if (!is_logged_in()) {
     }
     echo $user_exists;
     #print this for debugging
-    print_r($user_info);
+    print_r($user_info . "muthufucka!");
     #check if the user info stored correctly
     #look at usertype to determine which landing page to load
     #set the session variables (user_id, user_type, username, name)
@@ -118,7 +117,7 @@ function to_landing() {
 #uses internally stored credentials to create and return DB connection
 #as a Mysqli PHP object.  For use on prism.tekbot.net unless you hard-code.
 function get_db_connection() {
-    include '../../include/db_connect.php';
+    include '../pages/db_connect.php';
     //create and verify connection
     $mysqli_obj = new mysqli($servername, $username, $password, $dbname);
 
