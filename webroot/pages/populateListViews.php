@@ -7,7 +7,7 @@ function populate_internships() {
     # first two values in internship are internship_id and org_id
     # slots available, date posted, start date printed on 2nd line of element
     if ($result = $mysqli->query("SELECT * FROM internship_list")) {
-
+        $infoArray = mysqli_fetch_assoc($result);
         echo "<div id=\"list_view\">";
         echo "<p id=\"query_stats\">";
         printf("Select returned %d internships.\n", $result->num_rows);
@@ -76,7 +76,8 @@ function populate_orgs() {
         $mysqli = get_db_connection();
         /* Select queries return a resultset */
         if ($result = $mysqli->query("SELECT * FROM org_list")) {
-
+            $infoArray = mysqli_fetch_assoc($result);
+            $orgId = $infoArray["OrganizationId"];
             echo "<div id=\"list_view\">";
             echo "<p id=\"query_stats\">";
             printf("Select returned %d organizations.\n", $result->num_rows);
@@ -84,9 +85,10 @@ function populate_orgs() {
             foreach ($result as $row) {
                 echo "<li>Organization: <br />";
                 foreach ($row as $element) {
+                    echo "<a href='organizationDetailView.php?value=10'>";
                     echo $element . "&emsp;";
                 }
-                echo "</li></br >";
+                echo "</a></li></br >";
             }
             echo "</ul></div>";
             /* free result set */
@@ -96,7 +98,7 @@ function populate_orgs() {
 }
 
 function get_db_connection() {
-    include '../pages/db_connect.php';
+    include 'db_connect.php';
     //create and verify connection
     $mysqli_obj = new mysqli($servername, $username, $password, $dbname);
 

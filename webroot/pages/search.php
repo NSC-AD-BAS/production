@@ -1,8 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cdub
- * Date: 3/20/2016
- * Time: 7:24 PM
- */
+include 'banner.php';
+$textInput = $_POST['searchInput'];
+echo "<h1>$textInput</h1>";
+
 ?>
