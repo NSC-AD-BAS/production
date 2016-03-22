@@ -33,10 +33,10 @@ function populate_users() {
 
         echo "<div id=\"list_view\">";
         echo "<p id=\"query_stats\">";
-        printf("Select returned %d users.\n", $result->num_rows);
+        printf("%d users found.\n", $result->num_rows);
         echo "</p><br /><ul>";
         foreach ($result as $row) {
-            echo "<li>User: <br />";
+            echo "<li><br />";
             foreach ($row as $element) {
                 echo $element . "&emsp;";
             }
@@ -56,10 +56,10 @@ function populate_students() {
 
         echo "<div id=\"list_view\">";
         echo "<p id=\"query_stats\">";
-        printf("Select returned %d students.\n", $result->num_rows);
+        printf("%d students\n found", $result->num_rows);
         echo "</p><br /><ul>";
         foreach ($result as $row) {
-            echo "<li>Student: <br />";
+            echo "<li><br />";
             foreach ($row as $element) {
                 echo $element . "&emsp;";
             }
