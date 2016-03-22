@@ -26,10 +26,13 @@ if (is_logged_in()) {
 //    echo "<a id=\"logout\" href=\"logout.php\">L O G O U T</a>";
     if ($_SESSION["user_type"] == "Student") {
         populate_internships();
+        echo '<#internshiplist style="background-color:#B57EDC">';
     } else if ($_SESSION["user_type"] == "Faculty") {
         populate_students();
+        echo '<#studentlist style="background-color:#B57EDC">';
     } else if($_SESSION["user_type"] == "Admin") {
         populate_users();
+        echo '<#userlist style="background-color:#B57EDC">';
     }
 } else {
     to_login();
