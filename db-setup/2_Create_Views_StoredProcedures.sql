@@ -78,8 +78,7 @@ CREATE OR REPLACE VIEW student_list AS
         s.StudentId AS `SID`,
         s.Cohort,
         s.ProgramStatus AS `Program Status`,
-        i.positionTitle AS `Internship`,
-        un.Note_Text AS `Notes`
+        i.positionTitle AS `Internship`
     FROM
         students s
             JOIN
