@@ -9,7 +9,11 @@ session_start();
 #print buttons in banner
 echo "<div id=\"banner\"> <h1>P R I S M </h1>";
 #print buttons in banner
-if ($_SESSION["user_type"] == "Faculty" || $_SESSION["user_type"] == "Admin") {
+if ($_SESSION["user_type"] == "Admin") {
+    echo "<a href=\"studentListView.php\"><button id=\"studentlist\">Students</button></a>";
+    echo "<a href=\"userListView.php\"><button id=\"studentlist\">Users</button></a>";
+}
+if ($_SESSION["user_type"] == "Faculty") {
     echo "<a href=\"studentListView.php\"><button id=\"studentlist\">Students</button></a>";
 }
 echo "<a href=\"internListView.php\"><button id=\"internshiplist\">Internships</button></a>";

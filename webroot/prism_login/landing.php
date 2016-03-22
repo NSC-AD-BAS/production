@@ -1,35 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome!</title>
-    <link href="../css/style.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
+<!---->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Welcome!</title>-->
+<!--    <link href="../css/style.css" type="text/css" rel="stylesheet" />-->
+<!--</head>-->
+<!--<body>-->
+
+
 <?php
-#Author: Kellan Nealy
-
-#accepts form data from ITSELF, PRINTS the listview with plain-text search
-#if the form on this page for plain-text search is selected. Otherwise
-#prints the standard listview with all INTERNSHIPS.
-
-
-#Handles the session, and only operates on an active session
-#prints the correct listview based on the user_type session variable
-session_start();
+include '../pages/banner.php';
+include 'login_system.php';
 if (is_logged_in()) {
-    echo "<div id=\"banner\"> <h1>P R I S M </h1>";
-    #print buttons in banner
-    if ($_SESSION["user_type"] == "Faculty" || $_SESSION["user_type"] == "Admin") {
-        echo "<a href=\"../pages/studentListView.php\"><button id=\"studentlist\">Students</button></a>";
-    }
-    echo "<a href=\"../pages/internListView.php\"><button id=\"internshiplist\">Internships</button></a>";
-    echo "<a href=\"../pages/orgListView.php\"><button id=\"orglist\">Organizations</button></a>";
-    
-    #print user details in banner
-    echo "<span id=\"userinfo\">" . $_SESSION["user_type"] . "&emsp;" . $_SESSION["username"] . " | " . $_SESSION["name"];
-    echo "</span></div>";
-    echo "<a id=\"logout\" href=\"logout.php\">L O G O U T</a>";
-    
+//    echo "<div id=\"banner\"> <h1>P R I S M </h1>";
+//    #print buttons in banner
+//    if ($_SESSION["user_type"] == "Faculty" || $_SESSION["user_type"] == "Admin") {
+//        echo "<a href=\"../pages/studentListView.php\"><button id=\"studentlist\">Students</button></a>";
+//    }
+//    echo "<a href=\"../pages/internListView.php\"><button id=\"internshiplist\">Internships</button></a>";
+//    echo "<a href=\"../pages/organizationListView.php\"><button id=\"orglist\">Organizations</button></a>";
+//
+//    #print user details in banner
+//    echo "<span id=\"userinfo\">" . $_SESSION["user_type"] . "&emsp;" . $_SESSION["username"] . " | " . $_SESSION["name"];
+//    echo "</span></div>";
+//    echo "<a id=\"logout\" href=\"logout.php\">L O G O U T</a>";
     if ($_SESSION["user_type"] == "Student") {
         populate_internships();
     } else if ($_SESSION["user_type"] == "Faculty") {
