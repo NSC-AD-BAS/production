@@ -190,7 +190,7 @@ h1
     border: 3px solid #E65C5C;
 }
 
-#studentlist, #internshiplist, #orglist {
+#studentlist, #internshiplist, #orglist, #userlist, .buttonOff {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #999999;
     height: 100%;
@@ -198,7 +198,13 @@ h1
     border: 3px solid white;
 }
 
-#studentlist:hover, #internshiplist:hover, #orglist:hover, #userinfo:hover {
+#studentlist:hover, #internshiplist:hover, #orglist:hover, #userinfo:hover, .buttonOff:hover, .buttonOn:hover {
+    background-color: #999999;
+    color: black;
+    border: 3px solid black;
+}
+
+.buttonOn {
     background-color: #999999;
     color: black;
     border: 3px solid black;
